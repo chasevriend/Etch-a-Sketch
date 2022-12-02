@@ -1,29 +1,25 @@
-//Create divs within #container-div
-// const grid = document.getElementsByClassName('grid');
-// function createGrid(size) {
-//     grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`
-//     grid.style.gridTemplateRows = `repeat(${size}, 1fr)`
-
-//     for (i = 0; i < size * size; i++) {
-//         const gridElement = document.createElement('div');
-//         gridElement.classList.add('grid-element');
-//         gridElement.addEventListener('mouseover', changeColor);
-//         gridElement.addEventListener('mousedown', changeColor);
-//         grid.appendChild(gridElement);
-//     };
-// };
-
-// createGrid(16);
-
+//Create Board using divs
 function createGrid() {
-    const grid = document.querySelector('#grid');
-    newDivs = document.createElement('div');
-    grid.classList.add('container');
-    grid.appendChild(newDivs);
+    let grid = document.querySelector(".grid");
+    let squares = document.querySelector("div");
+    grid.style.gridTemplateColumns = "repeat(16 , 1fr)";
+    grid.style.gridTemplateColumns ="repeat(16 , 1fr)";
+
+    for (let i = 0; i < 256; i++) {
+        let square = document.createElement("div");
+        square.addEventListener("mouseover" , () => {
+            square.style.backgroundColor = "black";
+        });
+        square.style.backgroundColor = "blue";
+        grid.insertAdjacentElement("beforeend", square);
+    }
 }
 
-for (let i = 0; i < 16; i++ ) {
-createGrid();
-}
+createGrid(16);
+//Create a hover effect where it hightlights the selected divs
 
-//Next step- make hovering over divs color them as black 
+//Create a reset button that refreshes the entire drawing 
+
+
+
+
